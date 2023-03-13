@@ -81,9 +81,10 @@ function render(){
                                 </div>
                             </td>
                         </tr>`;
-            total = total + e.p.USD;
-            totalBTC = totalBTC + e.p.BTC;
-            if (e.pi) {
+            
+            if (e.pi.length) {
+                total = total + e.p.USD;
+                totalBTC = totalBTC + e.p.BTC;
                 htmltext += '';
                 e.pi.sort(function(a,b){
                     if (a.c*a.p.USD > b.c*b.p.USD) {
