@@ -1,13 +1,6 @@
-/**
-* This is the main Node.js server script for your project
-* Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
-*/
-
-// Client ID: ef045e5d1541d8f6f454ff53edb1812d, Client secret: a9402c87a63f54238e86be95df41e796b08cdf430629415077b062df28c9f348
 
 const express = require("express");
 const app = express();
-const path = require("path");
 const bodyParser = require('body-parser');
 const axios = require('axios');
 
