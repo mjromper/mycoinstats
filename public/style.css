@@ -1,0 +1,25 @@
+html {
+  color: #fff;
+  background-color: #333;
+  font-family: helvetica;
+}
+.main {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.content {
+  width: 100%;
+  padding: 5px;
+  margin: 10px;
+  min-height: 100px;
+}
+
+#bitcoin{
+  padding-top:80px;
+  width:200px;
+  margin:0 auto;
+  display:block;
+  text-align:center;
+  color:#888888;
+}
