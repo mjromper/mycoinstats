@@ -43,6 +43,7 @@ app.get('/api/data',(req, res) => {
             // a must be equal to b
             return 0;
         });
+        
         data.forEach( e=>{
             
   
@@ -78,10 +79,10 @@ app.get('/api/data',(req, res) => {
         });
         
         var out2 = [];
-   
+        var now = Date.now();
         Object.keys(out).forEach(key=>{
             var temp = out[key];
-            
+            temp.timestamp = now;
             out2.push(temp);
         });
     
