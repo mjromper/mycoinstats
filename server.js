@@ -3,11 +3,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
-
+const cookieParser = require('cookie-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
+app.use(cookieParser());
 
 
 app.use('/static', express.static('public'))
@@ -20,12 +21,17 @@ app.use('/',express.static(__dirname + '/public'));
 
 app.get('/api/data',(req, res) => {
   
+  var token = req.cookies.token; 
+
+  if (!token || token === "") {
+    return res.status(400).json({"error": "Invalid API token"});
+  }
 
   axios({
     method: 'get',
     url: 'https://api.coin-stats.com/v6/portfolio_items?coinExtraData=true',
     headers: {
-      'token': 'r:a0fa9b4136fcfd97ba2dec2e62e50d23'
+      'token': token
     }
   }).then(function (response) {
     
@@ -88,7 +94,7 @@ app.get('/api/data',(req, res) => {
     
         res.send(out2);
     
-  });;
+  });
   
   
 });

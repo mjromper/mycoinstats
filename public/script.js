@@ -43,8 +43,9 @@ function formatMoney(number) {
         (decPlaces ? "." + Math.abs(number - i).toFixed(decPlaces).slice(2) : "");
 }
 
-function render(){
-    const thisToken = localStorage.getItem('token');
+async function render(){
+    const tokenObj = await cookieStore.get('token');
+    const thisToken = tokenObj? tokenObj.value : "";
     console.log('#render: token = ', thisToken);
     const url = "https://api.coin-stats.com/v6/portfolio_items?coinExtraData=true";
 
@@ -124,17 +125,21 @@ function render(){
     });
 }
 
-const token = localStorage.getItem('token');
-document.getElementById("token").value = token;
+cookieStore.get('token').then(function(cValue){
+    var tokenl = cValue? cValue.value : "";
+    document.getElementById("token").value = tokenl;
+    render(tokenl);
+});
+
 
 
 document.getElementById("settoken").onclick = function(){
-    var token = document.getElementById("token").value;
-    localStorage.setItem('token', token);
-    render();
+    var tokenl = document.getElementById("token").value;
+    cookieStore.set('token', tokenl);
+    render(tokenl);
 }
 
-render();
+
 
 
 
