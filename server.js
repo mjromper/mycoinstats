@@ -24,9 +24,9 @@ app.get('/api/data',(req, res) => {
   var token = req.cookies.token; 
 
   if (!token) {
-    token = req.params.token;
+    token = req.query.token;
   }
-  
+
   if (!token || token === "") {
     return res.status(400).json({"error": "Invalid API token"});
   }
