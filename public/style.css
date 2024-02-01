@@ -23,3 +23,20 @@ html {
   text-align:center;
   color:#888888;
 }
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-flex {
+  flex: 1;
+  padding: 10px;
+}
+
+@media (min-width: 700px) {
+  .container {
+    flex-direction: row;
+  }
+}
