@@ -33,9 +33,10 @@ app.get('/api/data',(req, res) => {
 
   axios({
     method: 'get',
-    url: 'https://api.coin-stats.com/v6/portfolio_items?coinExtraData=true',
+    url: 'https://api.coin-stats.com/v7/portfolio_items?coinExtraData=true&showAverage=true&visibility=personal',
     headers: {
-      'token': token
+      'token': token,
+      'platform': "web"
     }
   }).then(function (response) {
     
