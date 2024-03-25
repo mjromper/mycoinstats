@@ -47,12 +47,13 @@ async function render(){
     const tokenObj = await cookieStore.get('token');
     const thisToken = tokenObj? tokenObj.value : "";
     console.log('#render: token = ', thisToken);
-    const url = "https://api.coin-stats.com/v6/portfolio_items?coinExtraData=true";
+    const url = "https://api.coin-stats.com/v7/portfolio_items?coinExtraData=true&showAverage=true&visibility=personal";
 
     document.getElementById("error").innerHTML = "";
     document.getElementById("out").innerHTML = "";
 
     axios.defaults.headers.common['token'] = thisToken;
+    axios.defaults.headers.common['platform'] = "web";
 
     var htmltext = "<table width='95%' style='margin: 0 auto;font-size: 14px;'>";
     htmltext += '<tr style="color: #AAA"><th></th><th></th><th style="text-align:right;">AMOUNT</th><th style="text-align:right;">PRICE</th><th style="text-align:left;padding-left:10px;">24h</th><th style="text-align:right;">TOTAL</th></tr>';
