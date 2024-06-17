@@ -12,9 +12,6 @@
     "cookie-parser": "^1.4.6",
     "express": "^4.17.1"
   },
-  "engines": {
-    "node": "14.x"
-  },
   "repository": {
     "url": "https://glitch.com/edit/#!/mycoinstats"
   },
